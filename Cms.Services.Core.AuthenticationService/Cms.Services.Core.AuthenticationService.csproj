@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.14" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.14" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.14" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.10.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cms.Services.Contract.AuthenticationService\Cms.Services.Contract.AuthenticationService.csproj" />
+  </ItemGroup>
+
+</Project>

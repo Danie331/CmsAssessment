@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cms.Data.DAL\Cms.Data.DAL.csproj" />
+    <ProjectReference Include="..\Cms.Services.Contract.StockManagementService\Cms.Services.Contract.StockManagementService.csproj" />
+  </ItemGroup>
+
+</Project>

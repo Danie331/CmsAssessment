@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NSwag.AspNetCore" Version="13.10.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cms.Services.Contract.AuthenticationService\Cms.Services.Contract.AuthenticationService.csproj" />
+    <ProjectReference Include="..\Cms.Services.Contract.StockManagementService\Cms.Services.Contract.StockManagementService.csproj" />
+    <ProjectReference Include="..\Cms.Services.Core.AuthenticationService\Cms.Services.Core.AuthenticationService.csproj" />
+    <ProjectReference Include="..\Cms.Services.Core.StockManagementService\Cms.Services.Core.StockManagementService.csproj" />
+  </ItemGroup>
+
+</Project>
