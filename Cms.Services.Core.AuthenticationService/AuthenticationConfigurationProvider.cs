@@ -18,5 +18,15 @@ namespace Cms.Services.Core.AuthenticationService
             var config = _configuration.GetSection("JwtSettings");
             return new JwtSettings { Secret = config.GetValue<string>("Secret") };
         }
+
+        public Credential GetTestCredentials()
+        {
+            var config = _configuration.GetSection("TestCredential");
+            return new Credential 
+            { 
+                Username = config.GetValue<string>("Username"),
+                Password = config.GetValue<string>("Password")
+            };
+        }
     }
 }

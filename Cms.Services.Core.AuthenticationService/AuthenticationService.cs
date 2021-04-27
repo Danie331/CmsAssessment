@@ -11,9 +11,6 @@ namespace Cms.Services.Core.AuthenticationService
 {
     class AuthenticationService : IAuthenticationService
     {
-        private const string _testUsername = "testuser";
-        private const string _testUserPassword = "testpass";
-
         private readonly IAuthenticationConfigurationProvider _configurationProvider;
         public AuthenticationService(IAuthenticationConfigurationProvider configurationProvider)
         {
@@ -22,7 +19,8 @@ namespace Cms.Services.Core.AuthenticationService
 
         public AuthenticationResult Authenticate(string username, string password)
         {
-            if (username == _testUsername && password == _testUserPassword)
+            var testCredentials = _configurationProvider.GetTestCredentials();
+            if (username == testCredentials.Username && password == testCredentials.Password)
             {
                 return new AuthenticationResult { AuthenticationSuccess = true, Token = GenerateJwtForTestUser() };
             }
@@ -36,6 +34,7 @@ namespace Cms.Services.Core.AuthenticationService
 
         private string GenerateJwtForTestUser()
         {
+            var testCredentials = _configurationProvider.GetTestCredentials();
             var jwtSettings = _configurationProvider.GetApiJwtSettings();
             var key = Encoding.ASCII.GetBytes(jwtSettings.Secret);
             var signingKey = new SymmetricSecurityKey(key);
@@ -45,7 +44,7 @@ namespace Cms.Services.Core.AuthenticationService
             {
                 Subject = new ClaimsIdentity(new[]
                     {
-                        new Claim(ClaimTypes.NameIdentifier, _testUsername, ClaimValueTypes.String)
+                        new Claim(ClaimTypes.NameIdentifier, testCredentials.Username, ClaimValueTypes.String)
                     }),
                 SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
             };
